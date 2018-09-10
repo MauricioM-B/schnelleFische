@@ -16,8 +16,8 @@ import java.util.Random; 																	//Import für java.util.Random
 	public static int farbe; 																//Würfelzahl
 	public int anzahlFische=4; 																//Anzahl der Fische
 	public int anzahlFischer=2; 															//Anzahl der Fischer
-	public static int xOne=5; 																//Variable für Entfernung vom Start der Fischer zum Start der Fische
-	public static int xTwo=5; 																//Variable für Entfernung vom Start der Fische zum Ziel
+	public static int xOne=7; 																//Variable für Entfernung vom Start der Fischer zum Start der Fische
+	public static int xTwo=7; 																//Variable für Entfernung vom Start der Fische zum Ziel
 	public static int boot=0; 																//Feld vom Boot
 	public static int start=0; 																//Start der Fischer
 	public static int startF=start+xOne+1; 													//Start der Fische
@@ -40,41 +40,41 @@ import java.util.Random; 																	//Import für java.util.Random
 	public static int fTwoZ=0;																//Legt fest, ob Fisch 2 das Ziel erreicht hat
 	public static int fThreeZ=0;															//Legt fest, ob Fisch 3 das Ziel erreicht hat
 	public static int fFourZ=0;																//Legt fest, ob Fisch 4 das Ziel erreicht hat
-	public static boolean check=(fOneG==1&&fTwoG==1)||(fOneG==1&&fThreeG==1)||(fOneG==1&&fFourG==1)||(fTwoG==1&&fThreeG==1)||(fTwoG==1&&fFourG==1)||(fThreeG==1&&fFourG==1)&&(fOne==ende&&fTwo==ende)||(fOne==ende&&fThree==ende)||(fOneG==ende&&fFourG==ende)||(fTwoG==ende&&fThreeG==ende)||(fTwoG==ende&&fFourG==ende)||(fThreeG==ende&&fFourG==ende); //Prüft ob mindestens 2 Fische im Ziel sind
+	public static boolean check1=(fOneG==1&&fTwoG==1)||(fOneG==1&&fThreeG==1)||(fOneG==1&&fFourG==1)||(fTwoG==1&&fThreeG==1)||(fTwoG==1&&fFourG==1)||(fThreeG==1&&fFourG==1); 
+	public static boolean check2=(fOne==ende&&fTwo==ende)||(fOne==ende&&fThree==ende)||(fOneG==ende&&fFourG==ende)||(fTwoG==ende&&fThreeG==ende)||(fTwoG==ende&&fFourG==ende)||(fThreeG==ende&&fFourG==ende);
+	public static boolean check=check1&&check2;												//Prüft ob mindestens 2 Fische im Ziel sind
  
 	public static void main(String[] args){ 												//Beginn von public static void main
-			dateien();
-       for (int i=1;i<40;i++){ 															//Beginn der for-Schleife
-        	wuerfeln();																		//Führt public static void wuerfeln aus
-        	fischer();																		//Führt public static void wuerfeln aus
-			fischEins();																	//Führt public static void fischEins aus
-			fischZwei();																	//Führt public static void fischZwei aus
-			fischDrei();																	//Führt public static void fischDrei aus
-			fischVier();																	//Führt public static void fischVier aus
-			unentschieden();																//Führt public static void unentschieden aus
-			
+		dateien();																			//Führt public static void dateien aus
+       for (int i=1;i<35;i++){ 																//Beginn der for-Schleife
+    	   wuerfeln();																		//Führt public static void wuerfeln aus
+    	   fischer();																		//Führt public static void wuerfeln aus
+    	   fischEins();																		//Führt public static void fischEins aus
+    	   fischZwei();																		//Führt public static void fischZwei aus
+    	   fischDrei();																		//Führt public static void fischDrei aus
+    	   fischVier();																		//Führt public static void fischVier aus
 		if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1){ 										//Prüft ob if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1) wahr ist
 			write=2; 																		//Legt write=2 fest
 			break;																			//Stoppt die for-Schleife
-		} 																					//Ende von if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1)		
-	} 																						//Ende von for-Schleife
-		if (write==3){																		//Prüft ob write=3 ist
+			} 																				//Ende von if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1)		
+       }
+		if (check==true){																	//Prüft ob check true ist ist
 			unentschieden();																//Führt public static void unentschieden aus
 			System.out.println("Es ist ein Unentschieden!");								//Gibt in die Konsole aus, dass es ein Unentschieden ist
 			write=1;																		//Setzt write auf Standard	
 		}else{																				//Ende von if (write==3)																
-			if(write==2){																	//Prüft ob write=2 ist
-				frG();																		//Führt public static void frG aus
-				System.out.println("Die Fischer haben gewonnen!");							//Gibt in die Konsole aus, dass die Fischer gewinnen
-				write=1;																	//Setzt write auf Standard
+		if(write==2){																		//Prüft ob write=2 ist
+			frG();																			//Führt public static void frG aus
+			System.out.println("Die Fischer haben gewonnen!");								//Gibt in die Konsole aus, dass die Fischer gewinnen
+			write=1;																		//Setzt write auf Standard
 		}else{ 																				//Ende von if(write==2)
-			if(write==1){																	//Prüft ob write=1 ist
-				fG();																		//Führt public static void fG aus
-				System.out.println("Die Fische haben gewonnen!");							//Gibt in die Konsole aus, dass die Fische gewinnen
+		if(write==1){																		//Prüft ob write=1 ist
+			fG();																			//Führt public static void fG aus
+			System.out.println("Die Fische haben gewonnen!");								//Gibt in die Konsole aus, dass die Fische gewinnen
 				}																			//Ende von if(write==1)
 			} 																				//Ende von else
 		}																					//Ende von else
-		stats.stat();																		//Führt das public static void stat aus der Klasse stats.java aus
+		stats.stat();																		//Führt das public static void stat aus der Klasse stats.java aus																						
 	} 																						//Ende von public static void main
 		
 	public static void wuerfeln(){ 															//Beginn von public static void wuerfeln
@@ -204,7 +204,7 @@ import java.util.Random; 																	//Import für java.util.Random
 	
 	public static void fG(){ 																//Beginn von public static void fG
 		try{																				//Beginn von try
-			File datei=new File("StatistikFG.txt"); 											//Erstellt Datei Statistik.txt
+			File datei=new File("StatistikFG.txt"); 										//Erstellt Datei Statistik.txt
 			FileWriter schreib=new FileWriter(datei, true); 								//Schreiber für die Datei
 			schreib.write("Fische"); 														//Schreibt Fische in die Datei
 			schreib.write(System.getProperty("line.separator")); 							//Setzt eine Zeile Abstand
@@ -229,8 +229,6 @@ import java.util.Random; 																	//Import für java.util.Random
 	} 																						//Ende von public static void frG
 	
 	public static void unentschieden(){ 													//Beginn von public static void unentschieden
-		if(check){ 																			//Fragt ab ob ein Unentschieden vorliegt
-			write=3;																		//Legt fest ob ein Unentschieden notiert wir
 		try{																				//Beginn von try
 			File datei=new File("StatistikU.txt"); 											//Erstellt Datei Statistik.txt
 			FileWriter schreib=new FileWriter(datei, true); 								//Schreiber für die Datei
@@ -240,8 +238,8 @@ import java.util.Random; 																	//Import für java.util.Random
 			schreib.close(); 																//Schließt den Schreibvorgang ab
 		}catch(IOException e){																//Fehlerausgabe
 			e.printStackTrace(); 															//Verfolgt auftretende Fehler zum Ursprung zurück
-			} 																				//Ende von try
-		}																					//Ende von if(check)
+		} 																					//Ende von try
+																							//Ende von if(check)
 	} 																						//Ende von public static void unentschieden	
 
 	public static void dateien(){															//Beginn von public static void dateien

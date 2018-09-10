@@ -68,7 +68,7 @@ public class stats{																							//Beginn von public class SchnelleFisc
 		int fr=(int)fischer;
 		System.out.println("Die Fischer gewinnen zu "+frPro+" % mit "+fr+" Siegen.");						//Gibt aus zu wie viel Prozent die Fischer gewonnen haben
 		unPro=unent/hPro*100;																				//Rechnet aus zu wie viel Prozent es ein Unentschieden ist
-		//System.out.println("Es ist zu "+unPro+" % ein Unentschieden.");									//Gibt aus zu wie viel Prozent es ein Unentschieden ist 
+		System.out.println("Es ist zu "+unPro+" % ein Unentschieden.");									//Gibt aus zu wie viel Prozent es ein Unentschieden ist 
 	}																										//Ende von public static void stat
 	
 } 																											//Ende von public class stats
