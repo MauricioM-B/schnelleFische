@@ -56,9 +56,14 @@ import java.util.Random; 																	//Import für java.util.Random
 		if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1){ 										//Prüft ob if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1) wahr ist
 			write=2; 																		//Legt write=2 fest
 			break;																			//Stoppt die for-Schleife
-			} 																				//Ende von if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1)		
+		}else {																				//Ende von if(fOneG==1&&fTwoG==1&&fThreeG==1&&fFourG==1)
+		if (check==true) {
+			write=3;
+			break;
+				}
+			}
        }
-		if (check==true){																	//Prüft ob check true ist ist
+		if (write==3){																	//Prüft ob check true ist ist
 			unentschieden();																//Führt public static void unentschieden aus
 			System.out.println("Es ist ein Unentschieden!");								//Gibt in die Konsole aus, dass es ein Unentschieden ist
 			write=1;																		//Setzt write auf Standard	
