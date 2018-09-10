@@ -16,7 +16,7 @@ import java.util.Random; 																	//Import für java.util.Random
 	public static int farbe; 																//Würfelzahl
 	public int anzahlFische=4; 																//Anzahl der Fische
 	public int anzahlFischer=2; 															//Anzahl der Fischer
-	public static int xOne=10; 																//Variable für Entfernung vom Start der Fischer zum Start der Fische
+	public static int xOne=5; 																//Variable für Entfernung vom Start der Fischer zum Start der Fische
 	public static int xTwo=5; 																//Variable für Entfernung vom Start der Fische zum Ziel
 	public static int boot=0; 																//Feld vom Boot
 	public static int start=0; 																//Start der Fischer
