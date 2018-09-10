@@ -1,18 +1,26 @@
-/**
-    * Programm führt eine Simulation des Spieles Schnell Fische aus
-    * @author  Mauricio Muler Bodemann
-    * @version 1.0
-    */
 
-package schnelleFische;
+	/* package schnelleFische
+	 * @description Programm führt eine Simulation des Spieles Schnell Fische aus
+	 * @author  Mauricio Muler Bodemann
+	 * @version 1.0
+	 */
 
-import java.io.File; 																		//Import für java.io.File
-import java.io.FileWriter; 																	//Import für java.io.FileWriter
-import java.io.IOException; 																//Import für java.io.IOException
-import java.io.PrintWriter;																	//Import für java.io.PrintWriter
-import java.util.Random; 																	//Import für java.util.Random
+	package schnelleFische;																	//Name vom package
+
+	/*Imports*/
+	
+	import java.io.File; 																	//Import für java.io.File
+	import java.io.FileWriter; 																//Import für java.io.FileWriter
+	import java.io.IOException; 															//Import für java.io.IOException
+	import java.io.PrintWriter;																//Import für java.io.PrintWriter
+	import java.util.Random; 																//Import für java.util.Random
+
+	/*Klasse SchnelleFische*/
 
 	public class SchnelleFische{															//Beginn von public class SchnelleFische	
+	
+	/*Variablen & etc.*/
+		
 	public static int farbe; 																//Würfelzahl
 	public int anzahlFische=4; 																//Anzahl der Fische
 	public int anzahlFischer=2; 															//Anzahl der Fischer
@@ -44,6 +52,8 @@ import java.util.Random; 																	//Import für java.util.Random
 	public static boolean check2=(fOne==ende&&fTwo==ende)||(fOne==ende&&fThree==ende)||(fOneG==ende&&fFourG==ende)||(fTwoG==ende&&fThreeG==ende)||(fTwoG==ende&&fFourG==ende)||(fThreeG==ende&&fFourG==ende);
 	public static boolean check=check1&&check2;												//Prüft ob mindestens 2 Fische im Ziel sind
  
+	/*main-Methode*/
+	
 	public static void main(String[] args){ 												//Beginn von public static void main
 		dateien();																			//Führt public static void dateien aus
        for (int i=1;i<35;i++){ 																//Beginn der for-Schleife
@@ -82,11 +92,15 @@ import java.util.Random; 																	//Import für java.util.Random
 		stats.stat();																		//Führt das public static void stat aus der Klasse stats.java aus																						
 	} 																						//Ende von public static void main
 		
+	/*wuerfeln-Methode*/	
+	
 	public static void wuerfeln(){ 															//Beginn von public static void wuerfeln
 		Random wuerfel=new Random();														//Erstellt ein Random
 		farbe=1+wuerfel.nextInt(6);															//Zahlenspektrum des Würfels ist von 1 bis 6
 		System.out.println("Würfel zeigt"+" "+farbe);										//Gibt in die Konsole aus was gewürfelt wurde
 	} 																						//Ende von public static void wuerfeln
+	
+	/*fischer-Methode*/
 	
 	public static void fischer(){ 															//Beginn von public static void fischer
 		if(farbe==1||farbe==2){																//Prüft ob eine 1 oder 2 gewürfelt wurde
@@ -147,6 +161,8 @@ import java.util.Random; 																	//Import für java.util.Random
 		} 																					//Ende von if(fTwoG==1)
 	} 																						//Ende von public static void fischer
 	
+	/*fischEins-Methode*/
+	
 	public static void fischEins(){ 														//Beginn von public static void fischEins
 		if(fOneZ==0){ 																		//Prüft ob Fisch 1 bereits im Ziel ist
 		if(fOne==ende){ 																	//Prüft ob Fisch 1 im Ziel ist
@@ -161,6 +177,8 @@ import java.util.Random; 																	//Import für java.util.Random
 			} 																				//Ende von if(fOneG==0)
 		} 																					//Ende von if(fOneZ==0)
 	} 																						//Ende von public static void fischEins	
+	
+	/*fischZwei-Methode*/
 	
 	public static void fischZwei(){ 														//Beginn von public static void fischZwei
 		if(fTwoZ==0){ 																		//Prüft ob Fisch 2 bereits im Ziel ist
@@ -177,6 +195,8 @@ import java.util.Random; 																	//Import für java.util.Random
 		} 																					//Ende von if(fTwoZ==0)
 	} 																						//Ende von public static void fischZwei
 	
+	/*fischDrei-Methode*/
+	
 	public static void fischDrei(){ 														//Beginn von public static void fischDrei
 		if(fThreeZ==0){ 																	//Prüft ob Fisch 3 bereits im Ziel ist
 			if(fThree==ende){ 																//Prüft ob Fisch 3 im Ziel ist
@@ -191,6 +211,8 @@ import java.util.Random; 																	//Import für java.util.Random
 			} 																				//Ende von if (fThreeG==0)
 		} 																					//Ende von if (fThreeZ==0)
 	}		 																				//Ende von public static void fischDrei
+	
+	/*fischVier-Methode*/
 	
 	public static void fischVier(){ 														//Beginn von public static void fischVier
 		if(fFourZ==0){ 																		//Prüft ob Fisch 4 bereits im Ziel ist
@@ -207,6 +229,8 @@ import java.util.Random; 																	//Import für java.util.Random
 		} 																					//Ende von if (fFourZ==0)		
 	}																						//Ende von public static void fischVier
 	
+	/*fG-Methode*/
+	
 	public static void fG(){ 																//Beginn von public static void fG
 		try{																				//Beginn von try
 			File datei=new File("StatistikFG.txt"); 										//Erstellt Datei Statistik.txt
@@ -219,6 +243,8 @@ import java.util.Random; 																	//Import für java.util.Random
 			e.printStackTrace(); 															//Verfolgt auftretende Fehler zum Ursprung zurück
 		} 																					//Ende von try			
 	} 																						//Ende von public static void fG
+	
+	/*frG-Methode*/
 	
 	public static void frG(){ 																//Beginn von public static void frG
 		try{																				//Beginn von try
@@ -233,6 +259,8 @@ import java.util.Random; 																	//Import für java.util.Random
 		} 																					//Ende von try
 	} 																						//Ende von public static void frG
 	
+	/*unentschieden-Methode*/
+	
 	public static void unentschieden(){ 													//Beginn von public static void unentschieden
 		try{																				//Beginn von try
 			File datei=new File("StatistikU.txt"); 											//Erstellt Datei Statistik.txt
@@ -244,9 +272,10 @@ import java.util.Random; 																	//Import für java.util.Random
 		}catch(IOException e){																//Fehlerausgabe
 			e.printStackTrace(); 															//Verfolgt auftretende Fehler zum Ursprung zurück
 		} 																					//Ende von try
-																							//Ende von if(check)
 	} 																						//Ende von public static void unentschieden	
 
+	/*dateien-Methode*/
+	
 	public static void dateien(){															//Beginn von public static void dateien
 		PrintWriter schreib;																//Erstellt PrintWriter schreib
 	    try{																				//Beginn von try
